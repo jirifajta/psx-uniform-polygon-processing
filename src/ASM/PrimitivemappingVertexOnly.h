@@ -1,5 +1,8 @@
 //PrimitivemappingVertexOnly.h
 
+// Copyright (C) 2026 Jiri Fajta
+// License: MIT License.
+
 #ifndef PrimitivemappingVertexOnly_H_INCLUDED
 #define PrimitivemappingVertexOnly_H_INCLUDED
 
