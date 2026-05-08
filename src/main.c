@@ -25,10 +25,11 @@
 #include "PrimitivemappingTests.h"
 #include "ASM/Primitivemapping.h"
 #include "ASM/PrimitivemappingVertexOnly.h"
-#include "ASM/PrimitivemappingSingle.h"
+#include "ASM/PrimitivemappingElement.h"
 #include "ASM/UnAlignWord.h"
 #include "ASM/Memcpyc.h"
 #include "ASM/SwapEndian.h"
+#include "ASM/Lerp.h"
 
 //PROTO
 int main(void);
@@ -1316,6 +1317,33 @@ void test_asm_PrimitivemappingSingle_uvOnly(){
 }
 
 
+void test_asm_lerp(){
+    short count_correct = 0, count_failed = 0;
+    long ret;
+    long result;
+    long a=1024;
+    long b=2048;
+    long c=1024;
+
+    printf("test_asm_lerp:\r\n");
+
+
+    result = lerpMidpoints(a, b);
+    ret = result == (a + ((b-a)>>1)) ? -1 : 0;
+
+    count_correct += ret ==-1 ? 1 : 0;
+    count_failed  += ret !=-1 ? 1 : 0;
+
+
+    result = lerpFixed12(a, b, c);
+    ret = result == (a + (((b-a) * c )>>12)) ? -1 : 0;
+
+    count_correct += ret ==-1 ? 1 : 0;
+    count_failed  += ret !=-1 ? 1 : 0;
+
+
+    printf("Stats: correct: %d failed: %d total: %d\r\n", count_correct, count_failed , (count_correct + count_failed) );
+}
 
 int main(void) {
     /* RUN TEST SCENARIOS */
@@ -1345,6 +1373,8 @@ int main(void) {
     test_asm_PrimitivemappingSingle_vertexOnly();
     test_asm_PrimitivemappingSingle_colorOnly();
     test_asm_PrimitivemappingSingle_uvOnly();
+
+    test_asm_lerp();
 
     return 0;
 }

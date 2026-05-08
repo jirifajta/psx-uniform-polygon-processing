@@ -70,6 +70,10 @@ Function description, arguments and requirements are found in [.h](/ASM/) files.
 * Two flavers: With and without return value.
 
 
+![Lerp.h](src/ASM/Lerp.h)
+* _lerpMidpoints_: return A + (B - A) >> 1.
+* _lerpFixed12_: return A + (((B - A) * C) >> 12). C = {0-4096}. Note: a + c(b-a) = a + bc - ac = a(1-c) + bc.
+
 # What about union struct?
 Moreover _uniform_ _polygon_,I was investigating how union struct could solve this problem. But the challenge remains the same. Because the variables of various structs where not on the same position in memory and more importantly, the access in C code was not stored in same variable. Hence this example:<br/>
 
