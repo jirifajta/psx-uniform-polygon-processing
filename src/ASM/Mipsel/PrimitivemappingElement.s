@@ -11,7 +11,7 @@
 
 primitivemappingVertexOnlyTileSptrX:
 	lw $t0,8($a1); # load x0,y0
-	sw $t0,8($a0); # load x1,y1
+	sw $t0,8($a0); # store x0,y0
 	jr $ra;
 	#nop;
 
@@ -21,10 +21,10 @@ primitivemappingVertexOnlyTileSptrX:
 .global primitivemappingVertexOnlyPolyF2
 
 primitivemappingVertexOnlyPolyF2:
-	lw $t0,8($a1);  # load x0,y0
-	lw $t1,20($a1); # load x1,y1
-	sw $t0,8($a0); 	# store x0,y0
-	sw $t1,12($a0); # store x1,y1
+	lw $t0,8($a1);
+	lw $t1,20($a1);
+	sw $t0,8($a0);
+	sw $t1,12($a0);
 	jr $ra;
 	#nop;
 
@@ -32,10 +32,10 @@ primitivemappingVertexOnlyPolyF2:
 .global primitivemappingVertexOnlyPolyG2
 
 primitivemappingVertexOnlyPolyG2:
-	lw $t0,8($a1);  # load x0,y0
-	lw $t1,20($a1); # load x1,y1
-	sw $t0,8($a0); 	# store x0,y0
-	sw $t1,16($a0); # store x1,y1
+	lw $t0,8($a1);
+	lw $t1,20($a1);
+	sw $t0,8($a0);
+	sw $t1,16($a0);
 	jr $ra;
 	#nop;
 
@@ -60,11 +60,11 @@ primitivemappingVertexOnlyPolyF3:
 .global primitivemappingVertexOnlyPolyF4
 
 primitivemappingVertexOnlyPolyF4:
-	lw $t0,8($a1);  # load x0,y0
-	lw $t1,20($a1); # load x1,y1
-	lw $t2,32($a1); # load x2,y2
+	lw $t0,8($a1);
+	lw $t1,20($a1);
+	lw $t2,32($a1);
 	lw $t3,44($a1);
-	sw $t0,8($a0);  # store x0,y0
+	sw $t0,8($a0);
 	sw $t1,12($a0);
 	sw $t2,16($a0);
 	sw $t3,20($a0);
@@ -78,10 +78,10 @@ primitivemappingVertexOnlyPolyF4:
 .global primitivemappingVertexOnlyPolyG3
 
 primitivemappingVertexOnlyPolyG3:
-	lw $t0,8($a1);  # load x0,y0
-	lw $t1,20($a1); # load x1,y1
-	lw $t2,32($a1); # load x2,y2
-	sw $t0,8($a0);  # store x0,y0
+	lw $t0,8($a1);
+	lw $t1,20($a1);
+	lw $t2,32($a1);
+	sw $t0,8($a0);
 	sw $t1,16($a0);
 	sw $t2,24($a0);
 	jr $ra;
@@ -91,11 +91,11 @@ primitivemappingVertexOnlyPolyG3:
 .global primitivemappingVertexOnlyPolyG4
 
 primitivemappingVertexOnlyPolyG4:
-	lw $t0,8($a1);  # load x0,y0
+	lw $t0,8($a1);
 	lw $t1,20($a1);
 	lw $t2,32($a1);
 	lw $t3,44($a1);
-	sw $t0,8($a0);  # store x0,y0
+	sw $t0,8($a0);
 	sw $t1,16($a0);
 	sw $t2,24($a0);
 	sw $t3,32($a0);
@@ -109,10 +109,10 @@ primitivemappingVertexOnlyPolyG4:
 .global primitivemappingVertexOnlyPolyFT3
 
 primitivemappingVertexOnlyPolyFT3:
-	lw $t0,8($a1);  # load x0,y0
-	lw $t1,20($a1); # load x1,y1
-	lw $t2,32($a1); # load x2,y2
-	sw $t0,8($a0);  # store x0,y0
+	lw $t0,8($a1);
+	lw $t1,20($a1);
+	lw $t2,32($a1);
+	sw $t0,8($a0);
 	sw $t1,16($a0);
 	sw $t2,24($a0);			
 	jr $ra;
@@ -122,11 +122,11 @@ primitivemappingVertexOnlyPolyFT3:
 .global primitivemappingVertexOnlyPolyFT4
 
 primitivemappingVertexOnlyPolyFT4:
-	lw $t0,8($a1);  # load x0,y0
-	lw $t1,20($a1); # load x1,y1
-	lw $t2,32($a1); # load x2,y2
+	lw $t0,8($a1);
+	lw $t1,20($a1);
+	lw $t2,32($a1);
 	lw $t3,44($a1);
-	sw $t0,8($a0);  # store x0,y0
+	sw $t0,8($a0);
 	sw $t1,16($a0);
 	sw $t2,24($a0);
 	sw $t3,32($a0);
@@ -138,10 +138,10 @@ primitivemappingVertexOnlyPolyFT4:
 .global primitivemappingVertexOnlyPolyGT3
 
 primitivemappingVertexOnlyPolyGT3:
-	lw $t0,8($a1);  # load x0,y0
-	lw $t1,20($a1); # load x1,y1
-	lw $t2,32($a1); # load x2,y2
-	sw $t0,8($a0);  # store x0,y0
+	lw $t0,8($a1);
+	lw $t1,20($a1);
+	lw $t2,32($a1);
+	sw $t0,8($a0);
 	sw $t1,20($a0);
 	sw $t2,32($a0);			
 	jr $ra;
@@ -152,11 +152,11 @@ primitivemappingVertexOnlyPolyGT3:
 .global primitivemappingVertexOnlyPolyGT4
 
 primitivemappingVertexOnlyPolyGT4:
-	lw $t0,8($a1);  # load x0,y0
-	lw $t1,20($a1); # load x1,y1
-	lw $t2,32($a1); # load x2,y2
+	lw $t0,8($a1);
+	lw $t1,20($a1);
+	lw $t2,32($a1);
 	lw $t3,44($a1);
-	sw $t0,8($a0);  # store x0,y0
+	sw $t0,8($a0);
 	sw $t1,20($a0);
 	sw $t2,32($a0);
 	sw $t3,44($a0);
@@ -171,8 +171,8 @@ primitivemappingVertexOnlyPolyGT4:
 .global primitivemappingColorOnlyPolyFXXLineFXTileSptrX
 
 primitivemappingColorOnlyPolyFXXLineFXTileSptrX:
-	lw $t0,4($a1);  # load RRGGBBCC
-	sw $t0,4($a0); # load RRGGBBCC
+	lw $t0,4($a1); # load RRGGBBCC
+	sw $t0,4($a0); # store RRGGBBCC
 	jr $ra;
 	#nop;
 

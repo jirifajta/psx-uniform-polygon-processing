@@ -7,10 +7,6 @@
 .section .text.unalignword
 .global unalignword
 
-/* void unalignword(void *value_ptr)
- $a0 = $4 = value_ptr
- */
-
 unalignword:
 	lb   $v0, 0($a0)
     lb   $t0, 1($a0)

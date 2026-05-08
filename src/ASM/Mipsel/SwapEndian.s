@@ -6,16 +6,6 @@
 .section .text.swapEndian32
 .global swapEndian32
 
-/* void unalignword(void *value_ptr)
- 32bit: $a0 = $4 = value_ptr of int, u_int, (PSX long u_long)
- or
- 16bit: $a0 = $4 = value_ptr of short, u_short
-
- other registers if used by function:
- $v0	: used to return value for this function.
- */
-
-
 swapEndian32:
 	lw $t0,0($a0);
 	sll $t1,$t0,24;
