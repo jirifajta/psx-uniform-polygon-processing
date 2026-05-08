@@ -3,7 +3,7 @@
 
 /* Snipped code:
 	This code cannot be used to run, but it provides an idea how to use primitivemapping(...).
-	PSYQ GTE function are just used as illustration for easier reading in this snipped code.
+	PSYQ GTE function are just used as illustration for easier reading in this snipped code in contrast to PSn00bSDK.
 */
 
 //PROTOTYPE
@@ -34,7 +34,7 @@ void process_polygon(Mesh *mesh){
 	if(mesh->FLAG_TEXTURED){
 		setUV(poly, mesh);
 		/*
-		Custom function, it does not care about 4th vertex if a primitive is used just for 3 vertecies (like FT3). This means that 4th vertex data will copy garbage to POLY_X that will not be copied back from POLY_X to GPU primitive due to [code] value. 
+		Custom function, it does not care about 4th vertex if a primitive is using just 3 vertecies (like FT3). This means that 4th vertex data will copy garbage to POLY_X that will not be copied back from POLY_X to GPU primitive due to [code] value (like FT3). 
 		*/
 	}
 	//set RGB0-3
@@ -68,7 +68,7 @@ void process_polygon4(Mesh *mesh, POLY_X *poly){// POLY_X prevents to take care 
 					(long *) &poly->x3, &p, &otz, &flag);
 		}else{
 			nclip = 1;
-			data->otz = RotAverage4(mesh->vex + vex_i_offset, mesh->vex + vex_i_offset + 1, mesh->vex + vex_i_offset + 2, mesh->vex + vex_i_offset + 3,
+			otz = RotAverage4(mesh->vex + vex_i_offset, mesh->vex + vex_i_offset + 1, mesh->vex + vex_i_offset + 2, mesh->vex + vex_i_offset + 3,
 							(long *) &poly->x0, // to screen space
 							(long *) &poly->x1,
 							(long *) &poly->x2,
@@ -98,7 +98,7 @@ void process_polygon3(Mesh *mesh, POLY_X *poly){// POLY_X prevents to take care 
 					(long *) &poly->x2,&p, &otz, &flag);
 		}else{
 			nclip = 1;
-			data->otz = RotAverage3(mesh->vex + vex_i_offset, mesh->vex + vex_i_offset + 1, mesh->vex + vex_i_offset + 2,
+			otz = RotAverage3(mesh->vex + vex_i_offset, mesh->vex + vex_i_offset + 1, mesh->vex + vex_i_offset + 2,
 							(long *) &poly->x0, // to screen space
 							(long *) &poly->x1,
 							(long *) &poly->x2,&p, &flag);

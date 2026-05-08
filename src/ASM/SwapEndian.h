@@ -11,25 +11,52 @@
 extern "C" {
 #endif
 
-/*
- * Function:
- * Swap bytes such that:
+/**
+ * @details Swap bytes such that:
  *  little-endian -> big-endian
  *  big-endian -> little-endian
  * 
  * 32 bit version: int, u_int, (PSX long, u_long)
- * 16 bit version: short, u_short
- * 
- * Parameter:
- * Any pointer that points to the first byte of interest. Use 16bit or 32bit function. Pointer must be stored as 2 or 4 bytes aligned respectively.
- * 
- * Return (if Ret contained in function name):
- * Returns 2 or 4 byte endian opposite endian format. Based on [swapEndian16(...)] [swapEndian32(...)].
+ *
+ * @param value_ptr Any pointer that points to the first byte of interest. Pointer must be stored as 4 bytes aligned. Input will be overwritten.
  */
-
 extern void swapEndian32(void *value_ptr);
+
+/**
+ * @details Swap bytes such that:
+ *  little-endian -> big-endian
+ *  big-endian -> little-endian
+ * 
+ * 32 bit version: int, u_int, (PSX long, u_long)
+ *
+ * @param value_ptr Any pointer that points to the first byte of interest. Pointer must be stored as 4 bytes aligned.
+ * 
+ * @return 4 byte counter endian format.
+ */
 extern long swapEndian32Ret(void *value_ptr);
+
+/**
+ * @details Swap bytes such that:
+ *  little-endian -> big-endian
+ *  big-endian -> little-endian
+ * 
+ * 16 bit version: short, u_short
+ *
+ * @param value_ptr Any pointer that points to the first byte of interest. Pointer must be stored as 2 bytes aligned. Input will be overwritten.
+ */
 extern void swapEndian16(void *value_ptr);
+
+/**
+ * @details Swap bytes such that:
+ *  little-endian -> big-endian
+ *  big-endian -> little-endian
+ * 
+ * 16 bit version: short, u_short
+ *
+ * @param value_ptr Any pointer that points to the first byte of interest. Pointer must be stored as 2 bytes aligned.
+ * 
+ * @return 2 byte counter endian format.
+ */
 extern short swapEndian16Ret(void *value_ptr);
 
 #if defined(c_plusplus) || defined(__cplusplus)

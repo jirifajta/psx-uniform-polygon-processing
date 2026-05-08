@@ -1,6 +1,6 @@
 # PSX uniform polygon processing
 
-PSX graphical primitives makes use of multiple type of data structs to define its property like _POLY_F3_, _POLY_GT4_ and _LINE_F2_.
+PlayStation 1 (aka PSX or PS1) graphical primitives makes use of multiple type of data structs to define its property like _POLY_F3_, _POLY_GT4_ and _LINE_F2_.
 During programming functions to process mesh’s vertices/faces to primitives, I did end up with various functions to process these various type of primitive structs. Which was not ideal. My new approach was to find a solution to make this more uniform.
 Therefore, a struct type and assembly function were created to process all polygons in the same fashion. 
 
@@ -19,7 +19,7 @@ Well this assembly was not tested in an isolated environment to test the real pe
 Function description, arguments and requirements are found in [.h](/ASM/) files.
 
 > [!NOTE]
-> This repository only contains my own source code written from scratch which can be used for **Mipsel GCC** (like ![PSn00bSDK](https://github.com/Lameguy64/PSn00bSDK/)) and **PsyQ** compilers.
+> This repository only contains my own source code written from scratch which is compatible with **Mipsel GCC** (like ![PSn00bSDK](https://github.com/Lameguy64/PSn00bSDK/)) compiler.
 
 
 ## Functions
@@ -42,11 +42,11 @@ Function description, arguments and requirements are found in [.h](/ASM/) files.
 ![PrimitivemappingVertexOnly.h](src/ASM/PrimitivemappingVertexOnly.h)
 * While _Primitivemapping.h_ copies all relevent variables, _PrimitivemappingVertexOnly.h_ copies only x's and y's. This performs slightly faster.
 
-![PrimitivemappingSingle.h](src/ASM/PrimitivemappingSingle.h)
+![PrimitivemappingElement.h](src/ASM/PrimitivemappingElement.h)
 * Copies only specific attributes from _POLY_X_. This performs slightly faster.
 
 > [!TIP]
-> _PrimitivemappingSingle.h_ provides opperations for specific type of primitive, therefore use function pointers to these functions to speed up loops by detecting correct primitive only once. 6% improvement over _Primitivemapping.h_.
+> _PrimitivemappingElement.h_ provides opperations for specific type of primitive, therefore use function pointers to these functions to speed up loops by detecting correct primitive only once. 6% improvement over _Primitivemapping.h_.
 
 ![Primitivemappinginvert.h](src/ASM/Primitivemappinginvert.h)
 * Inverts the process of _Primitivemapping.h_.

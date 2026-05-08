@@ -12,9 +12,8 @@
 extern "C" {
 #endif
 
-/*
- * Function:
- * Copy [POLY_X] struct -> supported primitive data structs.
+/**
+ * @details Copy [POLY_X] struct -> supported primitive data structs.
  * Definition of struct [POLY_X] is found in PolyX.c.
  * 
  * Supported primitive data structs:
@@ -31,13 +30,10 @@ extern "C" {
  * 
  * Setting primitive type and [abr] (known as texshade), [semi-trans] and so on in polyX is fine. primitivemapping(...) function can handle this as well.
  * 
- * Parameter:
- * ptr_primitive_out    : Returns primitive data struct that can be processed by PSX GPU like POLY_GT3.
- *                          Struct type that is returned is based on value set in polyX.code used as input.
- * ptr_primitive_in     : POLY_X pointer where [code], [tag] data (i.e. poly.code and poly.tag) is set. See Requirements above. 
  *
- * Return:
- * None.
+ * @param ptr_primitive_out Returns primitive data struct that can be processed by PSX GPU like POLY_GT3.
+ *                          Struct type that is returned is based on value set in polyX.code used as input.
+ * @param ptr_primitive_in POLY_X pointer where [code], [tag] data (i.e. poly.code and poly.tag) is set. See Requirements above.
  */
 
 extern void primitivemapping(void *ptr_primitive_out, POLY_X *ptr_primitive_in);
